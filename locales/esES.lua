@@ -13,13 +13,13 @@ if not L then return end
 -- add `-- @no-translate` at the end of the line so the locale sync script ignores it.
 
 
--- TODO: L["MODULES"] = "Modules"
--- TODO: L["LEFT_CLICK"] = "Left-Click"
--- TODO: L["RIGHT_CLICK"] = "Right-Click"
--- TODO: L["k"] = true -- short for 1000
--- TODO: L["M"] = true -- short for 1000000
--- TODO: L["B"] = true -- short for 1000000000
--- TODO: L["L"] = true -- For the local ping
+-- TODO: L["MODULES"] = "Modules" -- Marked -- @no-translate in frFR.lua?
+L["LEFT_CLICK"] = "Clic Izquierdo" -- -~> [INTERACT_ON_LEFT_CLICK_TEXT]
+L["RIGHT_CLICK"] = "Clic Derecho" -- -~> [HELPFRAME_REPORT_PLAYER_RIGHT_CLICK]
+L["mil"] = true -- short for 1000 -- -~> [FIRST_NUMBER_CAP_NO_SPACE]
+L["mill."] = true -- short for 1000000 -- -~> [SECOND_NUMBER_CAP_NO_SPACE]
+L["MM"] = true -- short for 1000000000 -- -~> [THIRD_NUMBER_CAP_NO_SPACE]
+-- TODO: L["L"] = true -- For the local ping ## 'H'(Hogar)?
 -- TODO: L["W"] = true -- For the world ping
 
 -- General
