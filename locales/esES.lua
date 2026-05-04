@@ -65,10 +65,10 @@ L["MM"] = true -- short for 1000000000 -- -~> [THIRD_NUMBER_CAP_NO_SPACE]
 -- TODO: L["RECAPTURE_INITIAL_POSITIONS_DESC"] = "Capture the current anchored positions as the new initial free placement positions"
 
 -- Positioning Options
--- TODO: L["BAR_WIDTH"] = "Bar Width"
--- TODO: L["LEFT"] = "Left"
--- TODO: L["CENTER"] = "Center"
--- TODO: L["RIGHT"] = "Right"
+L["BAR_WIDTH"] = "Anchura de la barra" -- -~> [HUD_EDIT_MODE_SETTING_COOLDOWN_VIEWER_BUFFBAR_WIDTH_SCALE]
+L["LEFT"] = "Izquierda" -- -~> [HUD_EDIT_MODE_SETTING_BAGS_DIRECTION_LEFT]
+L["CENTER"] = "Centro" -- -~> [HUD_EDIT_MODE_SETTING_COOLDOWN_VIEWER_ORIENTATION_HORIZONTAL_CENTER]
+L["RIGHT"] = "Derecha" -- -~> [HUD_EDIT_MODE_SETTING_BAGS_DIRECTION_RIGHT]
 
 -- Media
 -- TODO: L["FONT"] = "Font"
