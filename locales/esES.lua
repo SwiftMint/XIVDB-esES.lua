@@ -71,9 +71,9 @@ L["CENTER"] = "Centro" -- -~> [HUD_EDIT_MODE_SETTING_COOLDOWN_VIEWER_ORIENTATION
 L["RIGHT"] = "Derecha" -- -~> [HUD_EDIT_MODE_SETTING_BAGS_DIRECTION_RIGHT]
 
 -- Media
--- TODO: L["FONT"] = "Font"
--- TODO: L["SMALL_FONT_SIZE"] = "Small Font Size"
--- TODO: L["TEXT_STYLE"] = "Text Style"
+L["FONT"] = "Fuente" -- -~> [FONT_SIZE]
+L["SMALL_FONT_SIZE"] = "Tamaño de la fuente pequeña" -- -~> [FONT_SIZE] + [ACCESSIBILITY_FONT_SIZE_SMALL_LABEL]
+L["TEXT_STYLE"] = "Estilo del texto" -- -~> [CHAT_STYLE] + [ACCESSIBILITY_FONT_SIZE_LABEL]
 
 -- Text Colors
 -- TODO: L["COLORS"] = "Colors"
