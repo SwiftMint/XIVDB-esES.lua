@@ -65,25 +65,25 @@ L["MM"] = true -- short for 1000000000 -- -~> [THIRD_NUMBER_CAP_NO_SPACE]
 -- TODO: L["RECAPTURE_INITIAL_POSITIONS_DESC"] = "Capture the current anchored positions as the new initial free placement positions"
 
 -- Positioning Options
-L["BAR_WIDTH"] = "Anchura de la barra" -- -~> [HUD_EDIT_MODE_SETTING_COOLDOWN_VIEWER_BUFFBAR_WIDTH_SCALE]
+L["BAR_WIDTH"] = "Anchura de la Barra" -- -~> [HUD_EDIT_MODE_SETTING_COOLDOWN_VIEWER_BUFFBAR_WIDTH_SCALE]
 L["LEFT"] = "Izquierda" -- -~> [HUD_EDIT_MODE_SETTING_BAGS_DIRECTION_LEFT]
 L["CENTER"] = "Centro" -- -~> [HUD_EDIT_MODE_SETTING_COOLDOWN_VIEWER_ORIENTATION_HORIZONTAL_CENTER]
 L["RIGHT"] = "Derecha" -- -~> [HUD_EDIT_MODE_SETTING_BAGS_DIRECTION_RIGHT]
 
 -- Media
 L["FONT"] = "Fuente" -- -~> [FONT_SIZE]
-L["SMALL_FONT_SIZE"] = "Tamaño de la fuente pequeña" -- -~> [FONT_SIZE] + [ACCESSIBILITY_FONT_SIZE_SMALL_LABEL]
-L["TEXT_STYLE"] = "Estilo del texto" -- -~> [CHAT_STYLE] + [ACCESSIBILITY_FONT_SIZE_LABEL]
+L["SMALL_FONT_SIZE"] = "Tamaño de la Fuente Pequeña" -- -~> [FONT_SIZE] + [ACCESSIBILITY_FONT_SIZE_SMALL_LABEL]
+L["TEXT_STYLE"] = "Estilo del Texto" -- -~> [CHAT_STYLE] + [ACCESSIBILITY_FONT_SIZE_LABEL]
 
 -- Text Colors
--- TODO: L["COLORS"] = "Colors"
--- TODO: L["TEXT_COLORS"] = "Text Colors"
--- TODO: L["NORMAL"] = "Normal"
--- TODO: L["INACTIVE"] = "Inactive"
--- TODO: L["USE_CLASS_COLOR_TEXT"] = "Use Class Color for Text"
+L["COLORS"] = "Colores" -- -~> [COLORS]
+L["TEXT_COLORS"] = "Colores de Texto" -- -~> [COLORS] + [EXAMPLE_TEXT]
+L["NORMAL"] = "Normal" -- -~> [GDAPI_REALMTYPE_NORMAL]
+L["INACTIVE"] = "Inactivo" -- -~> [MOVE_TO_INACTIVE]
+L["USE_CLASS_COLOR_TEXT"] = "Usa colores de clase para texto" -- -~> [CLASS_COLORS] + [EXAMPLE_TEXT] + [EDIT_MODE_HELPTIPS_LAYOUTS]
 -- TODO: L["USE_CLASS_COLOR_TEXT_DESC"] = "Only the alpha can be set with the color picker"
--- TODO: L["USE_CLASS_COLORS_FOR_HOVER"] = "Use Class Colors for Hover"
--- TODO: L["HOVER"] = "Hover"
+L["USE_CLASS_COLORS_FOR_HOVER"] = "Usa colores de clase por ratón sobre" --> -~> [CLASS_COLORS] + [EDIT_MODE_HELPTIPS_LAYOUTS] + [CLICK_BINDINGS_UNBOUND_TEXT]
+L["HOVER"] = "Ratón sobre" -- -~> [TUTORIAL8]
 
 -------------------- MODULES ---------------------------
 
