@@ -269,28 +269,28 @@ L["NOT_LEARNED"] = "No aprendido"
 -- TODO: L["HIDE_BUTTON_DURING_OFF_SEASON"] = "Hide button during off-season"
 
 -- House/Home Selection
--- TODO: L["HOME"] = "Home"
--- TODO: L["UNKNOWN_HOUSE"] = "Unknown House"
--- TODO: L["HOUSE"] = "House"
--- TODO: L["PLOT"] = NEIGHBORHOOD_ROSTER_COLUMN_TITLE_PLOT
--- TODO: L["SELECTED"] = "Selected"
--- TODO: L["CHANGE_HOME"] = "Change Home"
+L["HOME"] = "Hogar"
+L["UNKNOWN_HOUSE"] = "Hogar desconocido"
+L["HOUSE"] = "Casa"
+L["PLOT"] = NEIGHBORHOOD_ROSTER_COLUMN_TITLE_PLOT
+L["SELECTED"] = "Seleccionadas"
+L["CHANGE_HOME"] = "Cambia Casa"
 -- TODO: L["NO_HOUSES_OWNED"] = "No Houses Owned"
--- TODO: L["VISIT_SELECTED_HOME"] = "Visit Selected Home"
+L["VISIT_SELECTED_HOME"] = "Visitar hogar seleccionado"
 
--- TODO: L["CLASSIC"] = "Classic"
--- TODO: L["Burning Crusade"] = true
--- TODO: L["Wrath of the Lich King"] = true
--- TODO: L["Cataclysm"] = true
--- TODO: L["Mists of Pandaria"] = true
--- TODO: L["Warlords of Draenor"] = true
--- TODO: L["Legion"] = true
--- TODO: L["Battle for Azeroth"] = true
--- TODO: L["Shadowlands"] = true
--- TODO: L["Dragonflight"] = true
--- TODO: L["The War Within"] = true
--- TODO: L["Midnight"] = true
--- TODO: L["CURRENT_SEASON"] = "Current season"
+L["CLASSIC"] = "Clásico"
+L["Burning Crusade"] = true
+L["Wrath of the Lich King"] = true
+L["Cataclysm"] = true
+L["Mists of Pandaria"] = true
+L["Warlords of Draenor"] = true
+L["Legion"] = true
+L["Battle for Azeroth"] = true
+L["Shadowlands"] = true
+L["Dragonflight"] = true
+L["The War Within"] = true
+L["Midnight"] = true
+L["CURRENT_SEASON"] = "Temporada actual"
 
 -- Profile Import/Export
 -- TODO: L["PROFILE_SHARING"] = "Profile Sharing"
