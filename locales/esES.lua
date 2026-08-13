@@ -141,31 +141,31 @@ L["MASTER_VOLUME"] = "Volumen general"
 L["ENABLE_MOUSE_WHEEL"] = "Activar rueda del ratón"
 
 -- Clock
--- TODO: L["TIME_FORMAT"] = "Time Format"
--- TODO: L["USE_SERVER_TIME"] = "Use Server Time"
-L["NEW_EVENT"] = "Nuevo evento!" -- -~> [NEW] + [LIMITED_TIME_EVENT]
--- TODO: L["LOCAL_TIME"] = "Local Time"
--- TODO: L["REALM_TIME"] = "Realm Time"
-L["OPEN_CALENDAR"] = "Abrir Calendario" -- -~> [BINDING_NAME_OPEN_CHAT] + [GAMETIME_TOOLTIP_TOGGLE_CALENDAR]
-L["OPEN_CLOCK"] = "Abrir Reloj" -- -~> [BINDING_NAME_OPEN_CHAT] + [GAMETIME_TOOLTIP_TOGGLE_CLOCK]
--- TODO: L["HIDE_EVENT_TEXT"] = "Hide Event Text"
-L["REST_ICON"] = "Icono de descansa" -- -~> [TARGETICONS] + [VOICEMACRO_7_Ta_0]
-L["SHOW_REST_ICON"] = "Mostrar Icono de Descansa" -- -~> [SHOW] + [TARGETICONS] + [VOICEMACRO_7_Ta_0]
-L["TEXTURE"] = "Textura" -- Are we supposed to translate this? Marked otherwise in frFR. -~> [TEXTURE_DETAIL]
-L["DEFAULT"] = "Predeterminado" -- -~> [CURSOR_SIZE_DEFAULT]
-L["CUSTOM"] = "Pers." -- -~> [CUSTOM], Personalizado is entire word ([AUCTION_HOUSE_FILTER_DROPDOWN_CURSOR])
--- TODO: L["CUSTOM_TEXTURE"] = "Custom Texture"
--- TODO: L["HIDE_REST_ICON_MAX_LEVEL"] = "Hide at Max Level"
+L["TIME_FORMAT"] = "Formato de Tiempo"
+L["USE_SERVER_TIME"] = "Usar Tiempo de Servidor"
+L["NEW_EVENT"] = "Nuevo evento!"
+L["LOCAL_TIME"] = "Hora Local"
+L["REALM_TIME"] = "Hora del Reino"
+L["OPEN_CALENDAR"] = "Abrir Calendario"
+L["OPEN_CLOCK"] = "Abrir Reloj"
+L["HIDE_EVENT_TEXT"] = "Ocultar Texto de evento"
+L["REST_ICON"] = "Icono de descansa"
+L["SHOW_REST_ICON"] = "Mostrar Icono de descansa"
+L["TEXTURE"] = "Textura"
+L["DEFAULT"] = "Predeterminado"
+L["CUSTOM"] = "Pers."
+L["CUSTOM_TEXTURE"] = "Textura personalizado"
+L["HIDE_REST_ICON_MAX_LEVEL"] = "Ocultar a nivel máximo"
 L["TEXTURE_SIZE"] = "Texture Size"
--- TODO: L["POSITION"] = "Position" -- Are we supposed to translate this? Marked otherwise in frFR.
--- TODO: L["CUSTOM_TEXTURE_COLOR"] = "Custom Color"
-L["COLOR"] = "Color" -- -~> [COLOR]
+L["POSITION"] = "Posición"
+L["CUSTOM_TEXTURE_COLOR"] = "Color personalizado"
+L["COLOR"] = "Color"
 
-L["TRAVEL"] = "Viajar" -- -~> [QUEST_HUB_TOOLTIP_TRAVEL_HEADER]
--- TODO: L["PORT_OPTIONS"] = "Port Options"
-L["READY"] = "Listo" -- -~> [READY]
-L["TRAVEL_COOLDOWNS"] = "Tiempos de reutilización de Viajar" -- -~> [CAPACITANCE_SHIPMENT_COOLDOWN] + [QUEST_HUB_TOOLTIP_TRAVEL_HEADER]
--- TODO: L["CHANGE_PORT_OPTION"] = "Change Port Option"
+L["TRAVEL"] = "Viajar"
+L["PORT_OPTIONS"] = "Opciones de Portales"
+L["READY"] = "Listo"
+L["TRAVEL_COOLDOWNS"] = "Tiempos de reutilización de Viajar"
+L["CHANGE_PORT_OPTION"] = "Cambiar opción de portal"
 
 -- Gold
 -- TODO: L["REGISTERED_CHARACTERS"] = "Registered characters"
