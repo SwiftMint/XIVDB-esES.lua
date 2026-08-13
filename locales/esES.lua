@@ -19,8 +19,8 @@ L["RIGHT_CLICK"] = "Clic Derecho"
 L["k"] = "mil"   -- short for 1000
 L["M"] = "mill." -- short for 1000000
 L["B"] = "MM"    -- short for 1000000000
--- TODO: L["L"] = true -- For the local ping ## 'H'? (Hogar)
--- TODO: L["W"] = true -- For the world ping ## 'M'? (Mundo)
+-- TODO: L["L"] = true -- For the local ping
+-- TODO: L["W"] = true -- For the world ping
 
 -- General
 -- TODO: L["POSITIONING"] = "Positioning"
