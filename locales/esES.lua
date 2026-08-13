@@ -293,7 +293,7 @@ L["Midnight"] = true
 L["CURRENT_SEASON"] = "Temporada actual"
 
 -- Profile Import/Export
--- TODO: L["PROFILE_SHARING"] = "Profile Sharing"
+L["PROFILE_SHARING"] = "Compartir perfil"
 
 -- TODO: L["INVALID_IMPORT_STRING"] = "Invalid import string"
 -- TODO: L["FAILED_DECODE_IMPORT_STRING"] = "Failed to decode import string"
@@ -313,12 +313,12 @@ L["CURRENT_SEASON"] = "Temporada actual"
 
 -- Changelog
 -- TODO: L["DATE_FORMAT"] = "%month%-%day%-%year%"
--- TODO: L["IMPORTANT"] = "Important"
--- TODO: L["NEW"] = "New"
--- TODO: L["IMPROVEMENT"] = "Improvement"
+L["IMPORTANT"] = "Importante"
+L["NEW"] = "Nuevo"
+L["IMPROVEMENT"] = "Mejora"
 -- TODO: L["BUGFIX"] = "Bugfix"
--- TODO: L["CHANGELOG"] = "Changelog"
+L["CHANGELOG"] = "Registro de cambios"
 
 -- Vault Module
--- TODO: L["GREAT_VAULT_DISABLED"] = "The Great Vault is currently disabled until the next season starts."
--- TODO: L["MAX_LEVEL_DISCLAIMER"] = "This module will only show when you reach max level."
+L["GREAT_VAULT_DISABLED"] = "La gran cámara es desactivado hasta la temporada próxima comienza."
+L["MAX_LEVEL_DISCLAIMER"] = "Este módulo sólo mostrar cuando llegas al nivel máximo."
