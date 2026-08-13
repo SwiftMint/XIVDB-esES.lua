@@ -144,6 +144,10 @@ function TravelModule:OnInitialize()
         profile.hideAdditionalTooltipText = true
     end
 
+    if xb.db and xb.db.char and xb.db.char.portItem == nil then
+        xb.db.char.portItem = self:FindFirstOption()
+    end
+
     self.hearthstones = {
         556,       -- Astral Recall
         6948,      -- Hearthstone
@@ -242,6 +246,89 @@ function TravelModule:GetCurrentSeason()
     end
 
     return currentSeason
+end
+
+function TravelModule:GetNextSeason()
+    local currentDate = date("%Y-%m-%d")
+    local nextSeason = nil
+    local earliestDate = nil
+
+    local portal = self:GetSeasonPortal()
+
+    xb.MythicTeleports = xb.MythicTeleports or {}
+    local seasons = xb.MythicTeleports
+
+    -- Find the soonest upcoming season (start > today)
+    for seasonKey, seasonData in pairs(seasons) do
+        if type(seasonData) == "table" and seasonData.start_date then
+            local startDate = seasonData.start_date[portal] or seasonData.start_date.default
+
+            if startDate and startDate > currentDate then
+                if earliestDate == nil or startDate < earliestDate then
+                    earliestDate = startDate
+                    nextSeason = seasonKey
+                end
+            end
+        end
+    end
+
+    return nextSeason
+end
+
+function TravelModule:GetSeasonPortal()
+    local portal = C_CVar.GetCVar("portal")
+    if portal ~= "US" and portal ~= "EU" then
+        return "default"
+    end
+    return portal
+end
+
+function TravelModule:GetSeasonPortalDates(seasonData)
+    if type(seasonData) ~= "table" or not seasonData.start_date then
+        return nil, nil
+    end
+
+    local portal = self:GetSeasonPortal()
+    local startDate = seasonData.start_date[portal] or seasonData.start_date.default
+    local endDate = seasonData.end_date and (seasonData.end_date[portal] or seasonData.end_date.default) or nil
+    return startDate, endDate
+end
+
+-- Convert ISO YYYY-MM-DD to a client-locale display string via FormatShortDate.
+function TravelModule:FormatSeasonIsoDate(isoDate)
+    return xb:FormatLocalizedDateString(isoDate)
+end
+
+function TravelModule:FormatSeasonDateRange(seasonKey)
+    if not seasonKey or not xb.MythicTeleports or not xb.MythicTeleports[seasonKey] then
+        return nil
+    end
+
+    local startDate, endDate = self:GetSeasonPortalDates(xb.MythicTeleports[seasonKey])
+    if not startDate then
+        return nil
+    end
+
+    local startDisplay = self:FormatSeasonIsoDate(startDate)
+    if endDate then
+        return string.format(L["SEASON_DATE_RANGE"], startDisplay, self:FormatSeasonIsoDate(endDate))
+    end
+    return string.format(L["SEASON_DATE_FROM"], startDisplay)
+end
+
+function TravelModule:FormatSeasonGroupLabel(name, seasonKey)
+    if not name then
+        return name
+    end
+    if not xb.db.profile.showSeasonDates or not seasonKey then
+        return name
+    end
+
+    local range = self:FormatSeasonDateRange(seasonKey)
+    if not range then
+        return name
+    end
+    return string.format("%s (%s)", name, range)
 end
 
 -- Skin Support for ElvUI/TukUI
@@ -417,17 +504,31 @@ function TravelModule:CreateMythicFrames()
 
     self.mythicButton.mythicFunction = function()
         if not InCombatLockdown() then
-            ToggleDropDownMenu(1, nil, self.mythicPopup, self.mythicButton, 0, 0)
+            local wasOpen = TravelModule:IsMythicDropdownOpen()
+            ToggleDropDownMenu(1, nil, TravelModule.mythicPopup, TravelModule.mythicButton, 0, 0)
+            if wasOpen then
+                TravelModule:ShowMythicTooltip()
+            else
+                GameTooltip:Hide()
+            end
         end
     end
 
+    TravelModule:HookMythicDropdownClose()
+
     self.mythicButton:SetScript('OnEnter', function()
         TravelModule:SetMythicColor()
-        if InCombatLockdown() then return end
+        if not InCombatLockdown() then
+            TravelModule:ShowMythicTooltip()
+        end
     end)
 
     self.mythicButton:SetScript('OnLeave', function()
         TravelModule:SetMythicColor()
+        if TravelModule.mythicTooltipTimer then
+            TravelModule.mythicTooltipTimer:Cancel()
+            TravelModule.mythicTooltipTimer = nil
+        end
         GameTooltip:Hide()
     end)
 end
@@ -1094,7 +1195,8 @@ function TravelModule:GetTeleportInfo(teleportData)
     end
 
     if not dungeonName then
-        dungeonName = type(dungeonId) == "number" and ("Dungeon " .. tostring(dungeonId)) or "Unknown dungeon"
+        dungeonName = teleportData.name
+            or (type(dungeonId) == "number" and ("Dungeon " .. tostring(dungeonId)) or "Unknown dungeon")
     end
 
     if knownId then
@@ -1435,6 +1537,7 @@ function TravelModule:ShowHomeTooltip()
     GameTooltip:ClearLines()
     local r, g, b, _ = unpack(xb:HoverColors())
     GameTooltip:AddLine("|cFFFFFFFF[|r" .. L["HOME"] .. "|cFFFFFFFF]|r", r, g, b)
+    GameTooltip:AddLine(" ")
     -- Cooldown display (similar to hearth/port tooltip)
     local visitCd = self:GetHousingCooldown()
     local cdText = self:FormatCooldown(visitCd)
@@ -1477,32 +1580,29 @@ function TravelModule:ShowHomeTooltip()
     end
 end
 
-function TravelModule:CreateMythicPopup()
+function TravelModule:GetMythicTeleportGroups()
     if not compat.isMainline then
-        return
+        return {}
     end
-    -- Get the current season
+
     local currentSeason = self:GetCurrentSeason()
     local showCurrentSeasonOnly = xb.db.profile.curSeasonOnly and currentSeason ~= nil
     local showUnknownTeleports = xb.db.profile.showUnknownTeleports ~= false
-
-    -- Create popup menu
     local filteredTeleports = {}
 
     if showCurrentSeasonOnly then
-        -- Use current season if available
         if currentSeason and xb.MythicTeleports[currentSeason] then
             local teleports = self:CollectTeleports(xb.MythicTeleports[currentSeason].teleports, showUnknownTeleports)
 
             if #teleports > 0 then
                 table.insert(filteredTeleports, {
                     name = L["CURRENT_SEASON"],
+                    seasonKey = currentSeason,
                     teleports = teleports
                 })
             end
         end
     else
-        -- If no current season, show all expansions
         local expansions = {}
         for key, expansion in pairs(xb.MythicTeleports) do
             local isSeason = type(expansion) == "table" and expansion.start_date ~= nil
@@ -1511,14 +1611,12 @@ function TravelModule:CreateMythicPopup()
             end
         end
 
-        -- Sort expansions by order (reverse chronological)
         table.sort(expansions, function(a, b)
             local orderA = a.data.order or 0
             local orderB = b.data.order or 0
             return orderA > orderB
         end)
 
-        -- Process each expansion
         for _, expansion in ipairs(expansions) do
             if expansion.data.teleports then
                 local teleports = {}
@@ -1530,7 +1628,6 @@ function TravelModule:CreateMythicPopup()
                     end
                 end
 
-                -- Sort alphabetically by dungeon name
                 table.sort(teleports, function(a, b)
                     return a.dungeonName < b.dungeonName
                 end)
@@ -1544,21 +1641,147 @@ function TravelModule:CreateMythicPopup()
             end
         end
 
-        -- Add current season at the bottom if available
-        if currentSeason and xb.MythicTeleports[currentSeason] then
-            -- Insert a separator before the current season group for spacing
-            table.insert(filteredTeleports, { teleports = "SEPARATOR" })
+        local nextSeason = self:GetNextSeason()
+        local hasNext = nextSeason and xb.MythicTeleports[nextSeason]
+        local hasCurrent = currentSeason and xb.MythicTeleports[currentSeason]
 
+        if hasNext or hasCurrent then
+            table.insert(filteredTeleports, { teleports = "SEPARATOR" })
+        end
+
+        if hasNext then
+            local teleports = self:CollectTeleports(xb.MythicTeleports[nextSeason].teleports, showUnknownTeleports)
+
+            if #teleports > 0 then
+                table.insert(filteredTeleports, {
+                    name = L["NEXT_SEASON"],
+                    seasonKey = nextSeason,
+                    teleports = teleports
+                })
+            end
+        end
+
+        if hasCurrent then
             local teleports = self:CollectTeleports(xb.MythicTeleports[currentSeason].teleports, showUnknownTeleports)
 
             if #teleports > 0 then
                 table.insert(filteredTeleports, {
                     name = L["CURRENT_SEASON"],
+                    seasonKey = currentSeason,
                     teleports = teleports
                 })
             end
         end
     end
+
+    return filteredTeleports
+end
+
+function TravelModule:GetMythicSharedCooldown()
+    for _, group in ipairs(self:GetMythicTeleportGroups()) do
+        if group.teleports ~= "SEPARATOR" then
+            for _, teleport in ipairs(group.teleports) do
+                if teleport.isKnown then
+                    return self:GetRemainingCooldown(teleport.knownId, true)
+                end
+            end
+        end
+    end
+    return 0
+end
+
+function TravelModule:IsMythicDropdownOpen()
+    if not self.mythicPopup then
+        return false
+    end
+
+    for i = 1, 2 do
+        local list = _G["DropDownList" .. i]
+        if list and list:IsShown() and list.dropdown == self.mythicPopup then
+            return true
+        end
+    end
+
+    return false
+end
+
+function TravelModule:TryShowMythicTooltipAfterDropdownClose()
+    if not self.mythicButton or InCombatLockdown() then
+        return
+    end
+
+    if not self.mythicButton:IsMouseOver() or self:IsMythicDropdownOpen() then
+        return
+    end
+
+    self:ShowMythicTooltip()
+end
+
+function TravelModule:HookMythicDropdownClose()
+    if self.mythicDropdownCloseHooked then
+        return
+    end
+    self.mythicDropdownCloseHooked = true
+
+    for i = 1, 2 do
+        local list = _G["DropDownList" .. i]
+        if list then
+            list:HookScript("OnHide", function(frame)
+                if frame.dropdown == TravelModule.mythicPopup then
+                    C_Timer.After(0, function()
+                        TravelModule:TryShowMythicTooltipAfterDropdownClose()
+                    end)
+                end
+            end)
+        end
+    end
+end
+
+function TravelModule:ShowMythicTooltip()
+    if not self.mythicButton or self:IsMythicDropdownOpen() then
+        return
+    end
+
+    if not xb:ShouldShowTooltip() then
+        GameTooltip:Hide()
+        return
+    end
+
+    GameTooltip:SetOwner(self.mythicButton, 'ANCHOR_' .. xb.miniTextPosition)
+    GameTooltip:ClearLines()
+    local r, g, b, _ = unpack(xb:HoverColors())
+    GameTooltip:AddLine("|cFFFFFFFF[|r" .. L["MYTHIC_PLUS_TELEPORTS"] .. "|cFFFFFFFF]|r", r, g, b)
+    GameTooltip:AddLine(" ")
+
+    local cdString = self:FormatCooldown(self:GetMythicSharedCooldown())
+    GameTooltip:AddDoubleLine(L["COOLDOWNS"], cdString, r, g, b, 1, 1, 1)
+    GameTooltip:AddLine(L["MYTHIC_TELEPORT_SHARED_CD"], r, g, b, true)
+
+    GameTooltip:AddLine(" ")
+    GameTooltip:AddDoubleLine('<' .. L["LEFT_CLICK"] .. '>', L["SHOW_MYTHIC_TELEPORT_POPUP"], r, g, b, 1, 1, 1)
+    GameTooltip:Show()
+
+    if not self.mythicTooltipTimer then
+        self.mythicTooltipTimer = C_Timer.NewTicker(1, function()
+            if GameTooltip:IsOwned(self.mythicButton) and not self:IsMythicDropdownOpen() then
+                self:ShowMythicTooltip()
+            else
+                if self.mythicTooltipTimer then
+                    self.mythicTooltipTimer:Cancel()
+                    self.mythicTooltipTimer = nil
+                end
+            end
+        end)
+    end
+end
+
+function TravelModule:CreateMythicPopup()
+    if not compat.isMainline then
+        return
+    end
+
+    local showCurrentSeasonOnly = xb.db.profile.curSeasonOnly and self:GetCurrentSeason() ~= nil
+    local filteredTeleports = self:GetMythicTeleportGroups()
 
     -- Function to add title and separator to the menu
     local function AddMenuHeader(level)
@@ -1571,6 +1794,18 @@ function TravelModule:CreateMythicPopup()
                         L["MYTHIC_PLUS_TELEPORTS"] .. '|r]'
         info.notClickable, info.notCheckable = true, true
         UIDropDownMenu_AddButton(info, level)
+
+        if showCurrentSeasonOnly then
+            local currentSeason = self:GetCurrentSeason()
+            local range = currentSeason and self:FormatSeasonDateRange(currentSeason)
+            if range then
+                -- Gold date line under the title (NORMAL_FONT_COLOR / quest gold)
+                local dateInfo = UIDropDownMenu_CreateInfo()
+                dateInfo.text = '|cFFFFD100' .. range .. '|r'
+                dateInfo.notClickable, dateInfo.notCheckable = true, true
+                UIDropDownMenu_AddButton(dateInfo, level)
+            end
+        end
 
         -- Separator
         local separator = UIDropDownMenu_CreateInfo()
@@ -1603,7 +1838,8 @@ function TravelModule:CreateMythicPopup()
                         UIDropDownMenu_AddButton(sep, level)
                     elseif expData.teleports and next(expData.teleports) then
                         local info = UIDropDownMenu_CreateInfo()
-                        info.text, info.checked = expData.name, false
+                        info.text = self:FormatSeasonGroupLabel(expData.name, expData.seasonKey)
+                        info.checked = false
                         info.menuList, info.hasArrow = expData.teleports, true
                         info.notCheckable = true
                         info.value = expData.teleports
@@ -2001,6 +2237,7 @@ function TravelModule:ShowTooltip()
         GameTooltip:ClearLines()
         local r, g, b, _ = unpack(xb:HoverColors())
         GameTooltip:AddLine("|cFFFFFFFF[|r" .. L["TRAVEL_COOLDOWNS"] .. "|cFFFFFFFF]|r", r, g, b)
+        GameTooltip:AddLine(" ")
 
         -- Show hearthstone cooldown using utility function
         local hearthstoneId = 6948 -- Regular Hearthstone ID
@@ -2122,8 +2359,8 @@ function TravelModule:RefreshHearthstonesList()
 end
 
 function TravelModule:GetDefaultOptions()
-    local firstItem = self:FindFirstOption()
-    xb.db.char.portItem = xb.db.char.portItem or firstItem
+    -- Do not touch xb.db here: GetDefaultOptions runs during SetupOptions before
+    -- AceDB:RegisterDefaults is finalized. portItem is backfilled in OnInitialize.
     return 'travel', {
         enabled = true,
         hideHearthstoneButton = false,
@@ -2136,6 +2373,7 @@ function TravelModule:GetDefaultOptions()
         hideMythicText = false,
         hideMythicInOffSeason = false,
         curSeasonOnly = false,
+        showSeasonDates = false,
         showUnknownTeleports = true,
         randomizeHs = false
     }
@@ -2340,6 +2578,23 @@ function TravelModule:GetConfig()
                 end,
                 set = function(_, val)
                     xb.db.profile.curSeasonOnly = val;
+                    self:Refresh();
+                end,
+                width = 1.2
+            },
+            showSeasonDates = {
+                name = L["SHOW_SEASON_DATES"],
+                order = 25.5,
+                type = "toggle",
+                hidden = function() return not compat.isMainline end,
+                disabled = function()
+                    return xb.db.profile.curSeasonOnly
+                end,
+                get = function()
+                    return xb.db.profile.showSeasonDates;
+                end,
+                set = function(_, val)
+                    xb.db.profile.showSeasonDates = val;
                     self:Refresh();
                 end,
                 width = 1.2
