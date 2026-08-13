@@ -14,13 +14,13 @@ if not L then return end
 
 
 L["MODULES"] = "Módulos"
-L["LEFT_CLICK"] = "Clic Izquierdo" -- -~> [INTERACT_ON_LEFT_CLICK_TEXT]
-L["RIGHT_CLICK"] = "Clic Derecho" -- -~> [HELPFRAME_REPORT_PLAYER_RIGHT_CLICK]
-L["mil"] = true -- short for 1000 -- -~> [FIRST_NUMBER_CAP_NO_SPACE]
-L["mill."] = true -- short for 1000000 -- -~> [SECOND_NUMBER_CAP_NO_SPACE]
-L["MM"] = true -- short for 1000000000 -- -~> [THIRD_NUMBER_CAP_NO_SPACE]
--- TODO: L["L"] = true -- For the local ping ## 'H'(Hogar)?
--- TODO: L["W"] = true -- For the world ping
+L["LEFT_CLICK"] = "Clic Izquierdo"
+L["RIGHT_CLICK"] = "Clic Derecho"
+L["k"] = "mil"   -- short for 1000
+L["M"] = "mill." -- short for 1000000
+L["B"] = "MM"    -- short for 1000000000
+-- TODO: L["L"] = true -- For the local ping ## 'H'? (Hogar)
+-- TODO: L["W"] = true -- For the world ping ## 'M'? (Mundo)
 
 -- General
 -- TODO: L["POSITIONING"] = "Positioning"
