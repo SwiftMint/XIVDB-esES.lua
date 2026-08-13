@@ -190,7 +190,7 @@ L["SHOW_TOOLTIPS"] = "Mostrar Descripciones"
 -- TODO: L["BAR_CURRENCY_SELECT"] = "Currencies displayed on the bar"
 L["FIRST_CURRENCY"] = "Primera Moneda"
 L["SECOND_CURRENCY"] = "Segunda Moneda"
--- TODO: L["THIRD_CURRENCY"] = "Tercera Moneda"
+L["THIRD_CURRENCY"] = "Tercera Moneda"
 L["RESTED"] = "Descansado"
 -- TODO: L["SHOW_MORE_CURRENCIES"] = "Show More Currencies on Shift+Hover"
 -- TODO: L["MAX_CURRENCIES_SHOWN"] = "Max currencies shown when holding Shift"
@@ -211,15 +211,15 @@ L["MEMORY_USAGE"] = "Uso de Memoria"
 -- TODO: L["CLEANED"] = "Cleaned"
 
 -- Reputation
--- TODO: L["OPEN_REPUTATION"] = "Open " .. REPUTATION
--- TODO: L["PARAGON_REWARD_AVAILABLE"] = "Paragon Reward available"
--- TODO: L["CLASS_COLORS_REPUTATION"] = "Use Class Colors for Reputation Bar"
--- TODO: L["REPUTATION_COLORS_REPUTATION"] = "Use Reputation Colors for Reputation Bar"
--- TODO: L["SHOW_LAST_REPUTATION_GAINED"] = "Show last gained reputation"
--- TODO: L["FLASH_PARAGON_REWARD"] = "Flash on Paragon Reward"
--- TODO: L["PROGRESS"] = "Progress"
--- TODO: L["RANK"] = "Rank"
--- TODO: L["PARAGON"] = "Paragon"
+L["OPEN_REPUTATION"] = "Abrir " .. REPUTATION
+L["PARAGON_REWARD_AVAILABLE"] = "Recompensa de reputación de dechado está disponible"
+L["CLASS_COLORS_REPUTATION"] = "Usa colores de clase para barra de reputación"
+L["REPUTATION_COLORS_REPUTATION"] = "Usa colores de reputación para barra de reputación"
+L["SHOW_LAST_REPUTATION_GAINED"] = "Mostrar última reputación obtenida"
+L["FLASH_PARAGON_REWARD"] = "Destella en recompensa de dechado"
+L["PROGRESS"] = "Progreso"
+L["RANK"] = "Rango"
+L["PARAGON"] = "Dechado"
 
 -- Tradeskills
 -- TODO: L["USE_CLASS_COLORS"] = "Use Class Colors"
