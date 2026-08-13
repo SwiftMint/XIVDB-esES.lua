@@ -13,7 +13,7 @@ if not L then return end
 -- add `-- @no-translate` at the end of the line so the locale sync script ignores it.
 
 
--- TODO: L["MODULES"] = "Modules" -- Marked -- @no-translate in frFR.lua?
+L["MODULES"] = "Módulos"
 L["LEFT_CLICK"] = "Clic Izquierdo" -- -~> [INTERACT_ON_LEFT_CLICK_TEXT]
 L["RIGHT_CLICK"] = "Clic Derecho" -- -~> [HELPFRAME_REPORT_PLAYER_RIGHT_CLICK]
 L["mil"] = true -- short for 1000 -- -~> [FIRST_NUMBER_CAP_NO_SPACE]
