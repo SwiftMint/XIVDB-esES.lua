@@ -245,7 +245,6 @@ read_globals = {
     'MAX_PLAYER_LEVEL',
     'MILLISECONDS_ABBR',
     'mod',
-    'MouseIsOver',
     'NEIGHBORHOOD_ROSTER_COLUMN_TITLE_PLOT',
     'NineSlicePanelMixin',
     'NONE',
