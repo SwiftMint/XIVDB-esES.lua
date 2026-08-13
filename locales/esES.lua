@@ -36,7 +36,7 @@ L["MISCELLANEOUS"] = "Miscelánea"
 -- TODO: L["SHOW_ON_MOUSEOVER_DESC"] = "Show the bar only when you mouseover it"
 L["BAR_PADDING"] = "Espaciado de Barra"
 L["MODULE_SPACING"] = "Espaciado de Módulos"
-L["BAR_MARGIN"] = "Margen de Barra"
+L["BAR_MARGIN"] = "Margen de la Barra"
 -- TODO: L["BAR_MARGIN_DESC"] = "Leftmost and rightmost margin of the bar modules"
 -- TODO: L["HIDE_ORDER_HALL_BAR"] = "Hide order hall bar"
 -- TODO: L["USE_ELVUI_FOR_TOOLTIPS"] = "Use ElvUI for tooltips"
@@ -65,10 +65,10 @@ L["SPACING"] = "Espaciado"
 -- TODO: L["RECAPTURE_INITIAL_POSITIONS_DESC"] = "Capture the current anchored positions as the new initial free placement positions"
 
 -- Positioning Options
-L["BAR_WIDTH"] = "Anchura de la Barra" -- -~> [HUD_EDIT_MODE_SETTING_COOLDOWN_VIEWER_BUFFBAR_WIDTH_SCALE]
-L["LEFT"] = "Izquierda" -- -~> [HUD_EDIT_MODE_SETTING_BAGS_DIRECTION_LEFT]
-L["CENTER"] = "Centro" -- -~> [HUD_EDIT_MODE_SETTING_COOLDOWN_VIEWER_ORIENTATION_HORIZONTAL_CENTER]
-L["RIGHT"] = "Derecha" -- -~> [HUD_EDIT_MODE_SETTING_BAGS_DIRECTION_RIGHT]
+L["BAR_WIDTH"] = "Anchura de la Barra"
+L["LEFT"] = "Izquierda"
+L["CENTER"] = "Centro"
+L["RIGHT"] = "Derecha"
 
 -- Media
 L["FONT"] = "Fuente" -- -~> [FONT_SIZE]
