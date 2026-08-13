@@ -28,7 +28,7 @@ L["BAR_POSITION"] = "Posición de Barra"
 L["TOP"] = "Superior"
 L["BOTTOM"] = "Inferior"
 L["BAR_COLOR"] = "Color de Barra"
--- TODO: L["USE_CLASS_COLOR"] = "Use Class Color for Bar"
+L["USE_CLASS_COLOR"] = "Usa colores de clase para la barra"
 L["MISCELLANEOUS"] = "Miscelánea"
 -- TODO: L["HIDE_IN_COMBAT"] = "Hide Bar in combat"
 -- TODO: L["HIDE_IN_FLIGHT"] = "Hide when in flight"
@@ -71,19 +71,19 @@ L["CENTER"] = "Centro"
 L["RIGHT"] = "Derecha"
 
 -- Media
-L["FONT"] = "Fuente" -- -~> [FONT_SIZE]
-L["SMALL_FONT_SIZE"] = "Tamaño de la Fuente Pequeña" -- -~> [FONT_SIZE] + [ACCESSIBILITY_FONT_SIZE_SMALL_LABEL]
-L["TEXT_STYLE"] = "Estilo del Texto" -- -~> [CHAT_STYLE] + [ACCESSIBILITY_FONT_SIZE_LABEL]
+L["FONT"] = "Fuente"
+L["SMALL_FONT_SIZE"] = "Tamaño de la Fuente Pequeña"
+L["TEXT_STYLE"] = "Estilo del Texto"
 
 -- Text Colors
-L["COLORS"] = "Colores" -- -~> [COLORS]
-L["TEXT_COLORS"] = "Colores de Texto" -- -~> [COLORS] + [EXAMPLE_TEXT]
-L["NORMAL"] = "Normal" -- -~> [GDAPI_REALMTYPE_NORMAL]
-L["INACTIVE"] = "Inactivo" -- -~> [MOVE_TO_INACTIVE]
-L["USE_CLASS_COLOR_TEXT"] = "Usa colores de clase para texto" -- -~> [CLASS_COLORS] + [EXAMPLE_TEXT] + [EDIT_MODE_HELPTIPS_LAYOUTS]
+L["COLORS"] = "Colores"
+L["TEXT_COLORS"] = "Colores de Texto"
+L["NORMAL"] = "Normal"
+L["INACTIVE"] = "Inactivo"
+L["USE_CLASS_COLOR_TEXT"] = "Usa colores de clase para texto"
 -- TODO: L["USE_CLASS_COLOR_TEXT_DESC"] = "Only the alpha can be set with the color picker"
-L["USE_CLASS_COLORS_FOR_HOVER"] = "Usa colores de clase por ratón sobre" --> -~> [CLASS_COLORS] + [EDIT_MODE_HELPTIPS_LAYOUTS] + [CLICK_BINDINGS_UNBOUND_TEXT]
-L["HOVER"] = "Ratón sobre" -- -~> [TUTORIAL8]
+L["USE_CLASS_COLORS_FOR_HOVER"] = "Usa colores de clase por ratón sobre"
+L["HOVER"] = "Ratón sobre"
 
 -------------------- MODULES ---------------------------
 
