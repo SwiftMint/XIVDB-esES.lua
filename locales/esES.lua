@@ -142,6 +142,17 @@ L["CURRENT_AUDIO_OUTPUT"] = "Salida actual"
 L["SET_AUDIO_OUTPUT"] = "Establecer salida de audio"
 L["NO_AUDIO_OUTPUT_DEVICES"] = "No periféricos de salida"
 
+-- DataBrokers
+L["DATABROKERS"] = "DataBrokers" -- @no-translate
+L["DATABROKERS_PLUGINS"] = "Plugins de DataBroker"
+L["DATABROKERS_NONE_AVAILABLE"] = "No plugins de DataBroker son detectado. Habilitar un plugin addon de LibDataBroker a listar lo aquí."
+L["DATABROKERS_SHOW_ICON"] = "Mostrar icono"
+L["DATABROKERS_ICON_SIZE"] = "Tamaño de icono"
+L["DATABROKERS_SHOW_TEXT"] = "Mostrar texto"
+L["DATABROKERS_SHOW_DATA_SOURCES"] = "Mostrar origenes de datos"
+L["DATABROKERS_SHOW_LAUNCHERS"] = "Mostrar lanzadores"
+L["DATABROKERS_OTHER"] = "Otro"
+
 -- Clock
 L["TIME_FORMAT"] = "Formato de tiempo"
 L["USE_SERVER_TIME"] = "Usar tiempo de servidor"
