@@ -188,7 +188,7 @@ L["CHANGE_PORT_OPTION"] = "Cambiar opción de portal"
 
 -- Gold
 L["REGISTERED_CHARACTERS"] = "Personajes registrados"
-L["SHOW_FREE_BAG_SPACE"] = DISPLAY_FREE_BAG_SLOTS
+L["SHOW_FREE_BAG_SPACE"] = "Mostrar huecos en bolsas"
 L["SHOW_OTHER_REALMS"] = "Mostrar otros reinos"
 L["ALWAYS_SHOW_SILVER_COPPER"] = "Siempre mostrar Plata y Cobre"
 L["SHORTEN_GOLD"] = "Acortar oro"
@@ -269,7 +269,12 @@ L["M_PLUS_TELEPORTS"] = "Teletransportes de M+"
 L["ONLY_SHOW_CURRENT_SEASON"] = "Mostrar sólo temporada actual"
 L["MYTHIC_PLUS_TELEPORTS"] = "Teletransportes de Mítica+"
 L["HIDE_M_PLUS_TELEPORTS_TEXT"] = "Ocultar texto de teletransportes Míticas+"
+L["SHOW_SEASON_DATES"] = "Mostrar fechas de temporada"
+L["SEASON_DATE_RANGE"] = "De %s a %s"
+L["SEASON_DATE_FROM"] = "De %s"
 L["SHOW_MYTHIC_PLUS_TELEPORTS"] = "Mostrar teletransportes Míticas+"
+L["MYTHIC_TELEPORT_SHARED_CD"] = "Tiempo de reutilización compartido de ocho horas (Reinicio después completado una mazmorra Mítica+)"
+L["SHOW_MYTHIC_TELEPORT_POPUP"] = "Mostrar emergente de teletransportar"
 L["USE_RANDOM_HEARTHSTONE"] = "Usa piedra de hogar aleatoria"
 local retrievingData = "Obtenido datos..."
 L["RETRIEVING_DATA"] = retrievingData
@@ -310,6 +315,7 @@ L["Dragonflight"] = true
 L["The War Within"] = true
 L["Midnight"] = true
 L["CURRENT_SEASON"] = "Temporada actual"
+L["NEXT_SEASON"] = "Temporada próxima"
 
 -- Profile Import/Export
 L["PROFILE_SHARING"] = "Compartiendo de perfil"
@@ -330,6 +336,21 @@ L["EXPORT_PROFILE_DESC"] = "Exportar tuyo configuraciones de perfil actual"
 L["IMPORT_PROFILE"] = "Importar un perfil"
 L["IMPORT_PROFILE_DESC"] = "Importar un perfil de un otro jugador"
 
+L["PROFILE_SETUP_HEADER"] = "XIV_Databar Continued" -- @no-translate
+L["PROFILE_SETUP_TEXT"] = "La sistema de perfil ha emigrado: este personaje todavía usando el perfil legado de defecto compartido.\n\nElige como este personaje debe continuar:\n- |cffffd100Mantenga perfil actual:|r queda en el perfil de defecto (recomendado)\n- |cffffd100Copiar perfil compartido:|r perfil personal basada en tuyo configuraciones compartidos actual\n- |cffffd100Creer perfil en blanco:|r perfil personal con configuraciones de defecto (restablece este personaje)\n\nTambién puedes gestionar perfiles más tarde en las configuraciones Perfiles."
+L["PROFILE_SETUP_CURRENT"] = "Perfil actual: %s"
+L["PROFILE_SETUP_NEW_BLANK"] = "Creer perfil en blanco"
+L["PROFILE_SETUP_NEW_FROM_SHARED"] = "Copiar perfil compartido"
+L["PROFILE_SETUP_KEEP_CURRENT"] = "Mantener perfil actual"
+L["PROFILE_NEWCHAR_TEXT"] = "Este personaje empieze con un perfil personal en blanco.\n\n- |cffffd100Mantenga perfil actual:|r mantenga el perfil personal en blanco de este personaje\n- |cffffd100Usa perfil compartido:|r unir el perfil compartido de defecto (configuraciones se mantiene en sincronía)\n\nPuedes cambiar lo este más tarde en las configuraciones Perfiles."
+L["PROFILE_NEWCHAR_USE_SHARED"] = "Usa perfil compartido"
+
+L["DISABLE_LOGIN_MESSAGE"] = "Desactivar mensaje de inicio de sesión"
+L["ADDON_LOADED_MSG"] = "cargado, escribe /xivc a abrir configuraciones."
+L["UPDATE_ANNOUNCE"] = "se actualizó a %s,"
+L["OPEN_CHANGELOG"] = "Abrir registro de cambias"
+L["CHANGELOG_AFTER_COMBAT"] = "Registro de cambias se abriré después el combate termina."
+
 -- Changelog
 L["DATE_FORMAT"] = "%month%-%day%-%year%" -- @no-translate
 L["IMPORTANT"] = "Importante"
@@ -339,5 +360,14 @@ L["BUGFIX"] = "Corrección de errores"
 L["CHANGELOG"] = "Registro de cambios"
 
 -- Vault Module
-L["GREAT_VAULT_DISABLED"] = "La gran cámara es desactivado hasta la temporada próxima comienza."
-L["MAX_LEVEL_DISCLAIMER"] = "Este módulo sólo mostrar cuando llegas al nivel máximo."
+L["GREAT_VAULT_DISABLED"] = "La gran cámara está desactivado hasta la temporada próxima comienza."
+L["MAX_LEVEL_DISCLAIMER"] = "Este módulo sólo aparecer cuando llegas al nivel máximo."
+L["VAULT_ALERT_COLOR"] = "Color de alerta"
+L["VAULT_ENABLE_REWARD_ALERT"] = "Habilitar alerta de recompensa disponible"
+L["VAULT_FLASH_ALERT"] = "Destello recompensa pendiente"
+L["VAULT_FLASH_INTERVAL"] = "Destello intervalo"
+L["VAULT_REWARD_ALERTS"] = "Alerta de recompensa"
+L["VAULT_SNOOZE_CHAT"] = "Mostrar mensaje de 'Posponer Chat'"
+L["VAULT_SNOOZE_CHAT_MESSAGE"] = "Destello de alerta de Cámara posponé para %s."
+L["VAULT_SNOOZE_FLASH"] = "Destello de alerta de posponer"
+L["VAULT_SNOOZE_MINUTES"] = "Duración del destello de posponer (minutos)"
