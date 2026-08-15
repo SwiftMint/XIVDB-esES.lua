@@ -275,7 +275,7 @@ L["HOUSE"] = "Casa"
 L["PLOT"] = NEIGHBORHOOD_ROSTER_COLUMN_TITLE_PLOT
 L["SELECTED"] = "Seleccionadas"
 L["CHANGE_HOME"] = "Cambia Casa"
-TODO: L["NO_HOUSES_OWNED"] = "No casas posees"
+L["NO_HOUSES_OWNED"] = "No casas posees"
 L["VISIT_SELECTED_HOME"] = "Visitar hogar seleccionado"
 
 L["CLASSIC"] = "Clásico"
