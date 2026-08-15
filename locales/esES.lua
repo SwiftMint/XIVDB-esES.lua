@@ -202,7 +202,7 @@ L["UNSELECT_ALL"] = "Deseleccionar todo"
 L["OPEN_XIV_CURRENCY_OPTIONS"] = "Abrir opciones de moneda de XIV"
 
 -- System
--- TODO: L["WORLD_PING"] = "Show World Ping"
+L["WORLD_PING"] = "Mostrar el ping de mundo"
 L["ADDONS_NUMBER_TO_SHOW"] = "Número de addons a mostrar"
 L["ADDONS_IN_TOOLTIP"] = "Addons a mostrar en la descripcion"
 L["SHOW_ALL_ADDONS"] = "Mostrar todos los addons en descripción con Mayús"
