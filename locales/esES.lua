@@ -138,6 +138,9 @@ L["SHOW_COORDINATES"] = "Mostrar coordenadas"
 L["MASTER_VOLUME"] = "Volumen general"
 L["VOLUME_STEP"] = "Volumen paso"
 L["ENABLE_MOUSE_WHEEL"] = "Activar rueda del ratón"
+L["CURRENT_AUDIO_OUTPUT"] = "Salida actual"
+L["SET_AUDIO_OUTPUT"] = "Establecer salida de audio"
+L["NO_AUDIO_OUTPUT_DEVICES"] = "No periféricos de salida"
 
 -- Clock
 L["TIME_FORMAT"] = "Formato de tiempo"
