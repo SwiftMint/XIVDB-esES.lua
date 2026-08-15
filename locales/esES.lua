@@ -133,6 +133,9 @@ L["DISABLE_TOOLTIPS_IN_COMBAT"] = "Mostrar descripciones en combate"
 L["DURABILITY_WARNING_THRESHOLD"] = "Límite de aviso de durabilidad"
 L["SHOW_ITEM_LEVEL"] = "Mostrar nivel de objecto"
 L["SHOW_COORDINATES"] = "Mostrar coordenadas"
+L["SET_EQUIPMENT_SET"] = "Establecer equipo"
+L["NO_EQUIPMENT_SETS"] = "No equipamientos"
+L["CURRENT_EQUIPMENT_SET"] = "Equipamiento actual"
 
 -- Master Volume
 L["MASTER_VOLUME"] = "Volumen general"
