@@ -12,6 +12,8 @@ if not L then return end
 -- @Translation Team: If you find a false positive (a string that should stay identical),
 -- add `-- @no-translate` at the end of the line so the locale sync script ignores it.
 
+-- ## Translations Start ## --
+
 L["MODULES"] = "Módulos"
 L["LEFT_CLICK"] = "Clic izquierdo"
 L["RIGHT_CLICK"] = "Clic derecho"
